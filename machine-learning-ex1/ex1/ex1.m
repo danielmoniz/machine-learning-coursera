@@ -69,8 +69,8 @@ J = computeCost(X, y, [-1 ; 2]);
 fprintf('\nWith theta = [-1 ; 2]\nCost computed = %f\n', J);
 fprintf('Expected cost value (approx) 54.24\n');
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+% fprintf('Program paused. Press enter to continue.\n');
+% pause;
 
 fprintf('\nRunning Gradient Descent ...\n')
 % run gradient descent
@@ -96,7 +96,7 @@ predict2 = [1, 7] * theta;
 fprintf('For population = 70,000, we predict a profit of %f\n',...
     predict2*10000);
 
-fprintf('Program paused. Press enter to continue.\n');
+% fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 %% ============= Part 4: Visualizing J(theta_0, theta_1) =============
@@ -133,3 +133,4 @@ contour(theta0_vals, theta1_vals, J_vals, logspace(-2, 3, 20))
 xlabel('\theta_0'); ylabel('\theta_1');
 hold on;
 plot(theta(1), theta(2), 'rx', 'MarkerSize', 10, 'LineWidth', 2);
+% pause;
