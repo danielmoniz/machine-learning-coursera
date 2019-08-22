@@ -14,7 +14,12 @@ extra_reg_cost = (lambda / (2*m)) * sum(theta .^ 2);
 cost_sum = sum((-y * log(h)') - (1 - y) * (log(1 - h)'));
 J = (1/m) * cost_sum + extra_reg_cost;
 
-grad = zeros(size(theta));
+% grad = zeros(size(theta));
+extra_reg_grad = (lambda / m) * theta;
+grad = (1 / m) * (X' * (h - y)) + extra_reg_grad;
+
+grad(1, 1) = (1 / m) * (X(:, 1)' * (h - y));
+
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
