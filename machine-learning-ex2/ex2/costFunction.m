@@ -6,10 +6,6 @@ function [J, grad] = costFunction(theta, X, y)
 
 % Initialize some useful values
 m = length(y); % number of training examples
-display('Sizes:')
-display(size(theta));
-display(size(X));
-display(size(y));
 
 thetaX = X * theta;
 h = sigmoid(thetaX);
@@ -18,9 +14,8 @@ cost_negative = -(1 - y)' * log(1 - h);
 
 % You need to return the following variables correctly 
 J = 1/m * (cost_positive + cost_negative);
-% grad = zeros(size(theta));
 
-grad = 1/m * X' * (thetaX - y);
+grad = 1/m * X' * (h - y);
 
 
 % ====================== YOUR CODE HERE ======================
