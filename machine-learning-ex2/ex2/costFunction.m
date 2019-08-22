@@ -17,10 +17,11 @@ cost_positive = -y' * log(h);
 cost_negative = -(1 - y)' * log(1 - h);
 
 % You need to return the following variables correctly 
-J = 0;
-grad = zeros(size(theta));
-
 J = 1/m * (cost_positive + cost_negative);
+% grad = zeros(size(theta));
+
+grad = 1/m * X' * (thetaX - y);
+
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta.
