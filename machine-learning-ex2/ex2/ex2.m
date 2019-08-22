@@ -48,16 +48,6 @@ X = data(:, [1, 2]); y = data(:, 3);
 % fprintf('\nProgram paused. Press enter to continue.\n');
 % pause;
 
-display(sigmoid(-50));
-display(sigmoid(-1));
-display(sigmoid(0));
-display(sigmoid(1));
-display(sigmoid(50));
-display('---');
-t = [-50; -1; 0; 1; 50];
-T = [t, t, t];
-display(sigmoid(T));
-
 
 %% ============ Part 2: Compute Cost and Gradient ============
 %  In this part of the exercise, you will implement the cost and gradient
@@ -105,8 +95,7 @@ options = optimset('GradObj', 'on', 'MaxIter', 400);
 
 %  Run fminunc to obtain the optimal theta
 %  This function will return theta and the cost 
-[theta, cost] = ...
-	fminunc(@(t)(costFunction(t, X, y)), initial_theta, options);
+[theta, cost] = fminunc(@(t)(costFunction(t, X, y)), initial_theta, options);
 
 % Print theta to screen
 fprintf('Cost at theta found by fminunc: %f\n', cost);
