@@ -53,6 +53,10 @@ display(sigmoid(-1));
 display(sigmoid(0));
 display(sigmoid(1));
 display(sigmoid(50));
+display('---');
+t = [-50; -1; 0; 1; 50];
+T = [t, t, t];
+display(sigmoid(T));
 
 
 %% ============ Part 2: Compute Cost and Gradient ============
