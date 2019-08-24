@@ -17,6 +17,24 @@ p = zeros(size(X, 1), 1);
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
 
+% Goal: (my words)
+% For each of the 5000 training examples, determine which of the 10 classes
+% is most likely to be the correct class.
+% To do so, compute the logistic regression for each class comparison (one vs all)
+% for all 5000 training examples. The index of the highest probability
+% corresponds to the predicted class. For example, for five classes (instead
+% of 10):
+    % 0.3 0.8 0.65 0.92 0.18
+% The fourth item has the highest probability (0.92), and so the predicted
+% class is 4.
+
+thetaX = X * all_theta';
+h = sigmoid(thetaX);
+
+% compute the max and max index of each row
+[_, p] = max(h, [], 2);
+
+
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using
 %               your learned logistic regression parameters (one-vs-all).

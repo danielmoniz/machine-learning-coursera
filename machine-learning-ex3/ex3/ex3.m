@@ -39,7 +39,7 @@ m = size(X, 1);
 rand_indices = randperm(m);
 sel = X(rand_indices(1:100), :);
 
-displayData(sel);
+% displayData(sel);
 
 % fprintf('Program paused. Press enter to continue.\n');
 % pause;
@@ -76,8 +76,8 @@ fprintf('\nTraining One-vs-All Logistic Regression...\n')
 lambda = 0.1;
 [all_theta] = oneVsAll(X, y, num_labels, lambda);
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+% fprintf('Program paused. Press enter to continue.\n');
+% pause;
 
 
 %% ================ Part 3: Predict for One-Vs-All ================
