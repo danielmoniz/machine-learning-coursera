@@ -55,6 +55,7 @@ Z3 = A2 * Theta2';
 display(size(Z3));
 
 A3 = sigmoid(Z3);
+display('Size of A3:')
 display(size(A3));
 
 % [_, prediction] = max(A3, [], 2);
@@ -68,12 +69,16 @@ for i = 1:m
     y_vectorized(i, value) = 1;
 end
 
+display('Size of y_vectorized:');
+display(size(y_vectorized));
+
+
 total = 0;
 for i = 1:m
     for k = 1:num_labels
-        true_cost = -y_vectorized(i, k) * log(A3(i, k));
-        false_cost = -(1 - y_vectorized(i, k) * log(1 - A3(i, k)));
-        total += true_cost + false_cost;
+        positive_cost = -y_vectorized(i, k) * log(A3(i, k));
+        negative_cost = -(1 - y_vectorized(i, k)) * log(1 - A3(i, k));
+        total += positive_cost + negative_cost;
     end
 end
 
