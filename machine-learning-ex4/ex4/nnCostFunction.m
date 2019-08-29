@@ -57,9 +57,30 @@ display(size(Z3));
 A3 = sigmoid(Z3);
 display(size(A3));
 
-[_, max_index] = max(A3, [], 2);
+% [_, prediction] = max(A3, [], 2);
 
-% J = 
+display('Size of y:')
+display(size(y));
+
+y_vectorized = zeros(m, num_labels);
+for i = 1:m
+    value = y(i);
+    y_vectorized(i, value) = 1;
+end
+
+total = 0;
+for i = 1:m
+    for k = 1:num_labels
+        true_cost = -y_vectorized(i, k) * log(A3(i, k));
+        false_cost = -(1 - y_vectorized(i, k) * log(1 - A3(i, k)));
+        total += true_cost + false_cost;
+    end
+end
+
+% cost_matrix = log(A3) * -y_vectorized' - log(1 - A3) * (1 - y_vectorized');
+% total = sum(sum(cost_matrix));
+
+J = (1 / m) * total;
 
 
 
