@@ -39,10 +39,10 @@ Theta2_grad = zeros(size(Theta2));
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
 
-% display('Size of Theta1:')
-% display(size(Theta1));
-% display('Size of Theta2:')
-% display(size(Theta2));
+display('Size of Theta1:')
+display(size(Theta1));
+display('Size of Theta2:')
+display(size(Theta2));
 
 A1 = [ones(m, 1), X];
 % display(size(A1));
