@@ -118,31 +118,31 @@ J = (1 / m) * total;
 %               over the training examples if you are implementing it for the 
 %               first time.
 
-Theta1_grad = zeros(size(Theta1));
-Theta2_grad = zeros(size(Theta2));
 
 % Backpropagation (iterative)
-for t = 1:m
-    delta_3 = (A3(t, :) - y_vectorized(t, :))'; % column vector
-    piece_1 = Theta2(:, 2:end)' * delta_3;
-    delta_2 = piece_1' .* sigmoidGradient(Z2);
-    Theta2_grad += delta_3 * A2(t, :);
-    Theta1_grad += delta_2(t, :)' * A1(t, :);
-end
-
-Theta1_grad = Theta1_grad / m;
-Theta2_grad = Theta2_grad / m;
+% Theta1_grad = zeros(size(Theta1));
+% Theta2_grad = zeros(size(Theta2));
+% for t = 1:m
+%     delta_3 = (A3(t, :) - y_vectorized(t, :))'; % column vector
+%     piece_1 = Theta2(:, 2:end)' * delta_3;
+%     delta_2 = piece_1' .* sigmoidGradient(Z2);
+%     Theta2_grad += delta_3 * A2(t, :);
+%     Theta1_grad += delta_2(t, :)' * A1(t, :);
+% end
+% Theta1_grad = Theta1_grad / m;
+% Theta2_grad = Theta2_grad / m;
 
 
 % Backpropagation (vectorized) - WIP
 
-% delta_3 = (A3 - y_vectorized)';
+delta_3 = (A3 - y_vectorized)';
+delta_2 = Theta2(:, 2:end)' * delta_3 .* sigmoidGradient(Z2)';
 
-% delta_2 = Theta2(:, 2:end)' * delta_3 .* sigmoidGradient(Z2)';
-% display("Size of delta_2:");
-% display(size(delta_2));
-% display("Size of delta_3:");
-% display(size(delta_3));
+Theta2_grad = delta_3 * A2;
+Theta1_grad = delta_2 * A1;
+
+Theta1_grad = Theta1_grad / m;
+Theta2_grad = Theta2_grad / m;
 
 
 
