@@ -73,6 +73,8 @@ display('Size of y_vectorized:');
 display(size(y_vectorized));
 
 
+% Purely iterative approach
+
 % total = 0;
 % for i = 1:m
 %     subtotal = 0;
@@ -87,18 +89,18 @@ display(size(y_vectorized));
 %     end
 % end
 
-display('-----');
+% Partially iterative/vectorized approach
+% total = 0
+% for i = 1:m
+%     positive_cost = -y_vectorized(i, :) * log(A3(i, :))';
+%     negative_cost = -(1 - y_vectorized(i, :)) * log(1 - A3(i, :))';
+%     total += positive_cost + negative_cost;
+% end
 
-total = 0
-for i = 1:m
-    positive_cost = -y_vectorized(i, :) * log(A3(i, :))';
-    negative_cost = -(1 - y_vectorized(i, :)) * log(1 - A3(i, :))';
-    subtotal = positive_cost + negative_cost;
-    total += positive_cost + negative_cost;
-end
-
-% cost_matrix = log(A3) * -y_vectorized' - log(1 - A3) * (1 - y_vectorized');
-% total = sum(sum(cost_matrix));
+% Purely vectorized approach
+positive_cost = sum(sum(-y_vectorized .* log(A3)));
+negative_cost = sum(sum(-(1 - y_vectorized) .* log(1 - A3)));
+total = positive_cost + negative_cost;
 
 J = (1 / m) * total;
 
