@@ -130,6 +130,10 @@ J = (1 / m) * total;
 %               and Theta2_grad from Part 2.
 %
 
+Theta1_cost = sum(sum(Theta1(:, 2:end) .^ 2));
+Theta2_cost = sum(sum(Theta2(:, 2:end) .^ 2));
+
+J += (lambda / (2 * m)) * (Theta1_cost + Theta2_cost);
 
 
 
