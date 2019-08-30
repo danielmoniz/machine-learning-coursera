@@ -73,13 +73,28 @@ display('Size of y_vectorized:');
 display(size(y_vectorized));
 
 
-total = 0;
+% total = 0;
+% for i = 1:m
+%     subtotal = 0;
+%     for k = 1:num_labels
+%         positive_cost = -y_vectorized(i, k) * log(A3(i, k));
+%         negative_cost = -(1 - y_vectorized(i, k)) * log(1 - A3(i, k));
+%         subtotal += positive_cost + negative_cost;
+%         total += positive_cost + negative_cost;
+%     end
+%     if i < 20
+%         display(subtotal);
+%     end
+% end
+
+display('-----');
+
+total = 0
 for i = 1:m
-    for k = 1:num_labels
-        positive_cost = -y_vectorized(i, k) * log(A3(i, k));
-        negative_cost = -(1 - y_vectorized(i, k)) * log(1 - A3(i, k));
-        total += positive_cost + negative_cost;
-    end
+    positive_cost = -y_vectorized(i, :) * log(A3(i, :))';
+    negative_cost = -(1 - y_vectorized(i, :)) * log(1 - A3(i, :))';
+    subtotal = positive_cost + negative_cost;
+    total += positive_cost + negative_cost;
 end
 
 % cost_matrix = log(A3) * -y_vectorized' - log(1 - A3) * (1 - y_vectorized');
