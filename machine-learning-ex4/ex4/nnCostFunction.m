@@ -24,11 +24,7 @@ Theta2 = reshape(nn_params((1 + (hidden_layer_size * (input_layer_size + 1))):en
 
 % Setup some useful variables
 m = size(X, 1);
-         
-% You need to return the following variables correctly 
-J = 0;
-Theta1_grad = zeros(size(Theta1));
-Theta2_grad = zeros(size(Theta2));
+
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should complete the code by working through the
@@ -39,10 +35,10 @@ Theta2_grad = zeros(size(Theta2));
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
 
-display('Size of Theta1:')
-display(size(Theta1));
-display('Size of Theta2:')
-display(size(Theta2));
+% display('Size of Theta1:')
+% display(size(Theta1));
+% display('Size of Theta2:')
+% display(size(Theta2));
 
 A1 = [ones(m, 1), X];
 % display(size(A1));
@@ -122,7 +118,19 @@ J = (1 / m) * total;
 %               over the training examples if you are implementing it for the 
 %               first time.
 
+Theta1_grad = zeros(size(Theta1));
+Theta2_grad = zeros(size(Theta2));
 
+delta_3 = (A3 - y_vectorized)';
+piece_1 = Theta2(:, 2:end)' * delta_3;
+delta_2 = piece_1 .* sigmoidGradient(Z2)';
+
+% gradient
+
+% for t = 1:m
+%     delta_3 = A3(t, :) - y_vectorized(t, :);
+%     delta_2 = Theta2' * delta_3' .* sigmoidGradient(Z2);
+% end
 
 
 
