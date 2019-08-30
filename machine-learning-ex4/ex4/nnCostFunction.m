@@ -39,29 +39,29 @@ Theta2_grad = zeros(size(Theta2));
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
 
-display('Size of Theta1:')
-display(size(Theta1));
-display('Size of Theta2:')
-display(size(Theta2));
+% display('Size of Theta1:')
+% display(size(Theta1));
+% display('Size of Theta2:')
+% display(size(Theta2));
 
 A1 = [ones(m, 1), X];
-display(size(A1));
+% display(size(A1));
 Z2 = A1 * Theta1';
-display(size(Z2));
+% display(size(Z2));
 
 A2 = [ones(length(Z2), 1), sigmoid(Z2)];
-display(size(A2));
+% display(size(A2));
 Z3 = A2 * Theta2';
-display(size(Z3));
+% display(size(Z3));
 
 A3 = sigmoid(Z3);
-display('Size of A3:')
-display(size(A3));
+% display('Size of A3:')
+% display(size(A3));
 
 % [_, prediction] = max(A3, [], 2);
 
-display('Size of y:')
-display(size(y));
+% display('Size of y:')
+% display(size(y));
 
 y_vectorized = zeros(m, num_labels);
 for i = 1:m
@@ -69,8 +69,8 @@ for i = 1:m
     y_vectorized(i, value) = 1;
 end
 
-display('Size of y_vectorized:');
-display(size(y_vectorized));
+% display('Size of y_vectorized:');
+% display(size(y_vectorized));
 
 
 % Purely iterative approach
