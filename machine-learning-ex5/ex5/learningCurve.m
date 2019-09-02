@@ -21,9 +21,9 @@ m = size(X, 1);
 error_train = zeros(m, 1);
 error_val   = zeros(m, 1);
 
-for i = 2:m
+for i = 1:m
     theta = trainLinearReg(X(1:i, :), y(1:i, :), lambda);
-    [train_cost, _] = linearRegCostFunction(X, y, theta, 0);
+    [train_cost, _] = linearRegCostFunction(X(1:i, :), y(1:i, :), theta, 0);
     [val_cost, _] = linearRegCostFunction(Xval, yval, theta, 0);
     error_train(i) = train_cost;
     error_val(i) = val_cost;
