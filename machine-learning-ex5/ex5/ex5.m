@@ -68,8 +68,8 @@ fprintf(['Gradient at theta = [1 ; 1]:  [%f; %f] '...
          '\n(this value should be about [-15.303016; 598.250744])\n'], ...
          grad(1), grad(2));
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+% fprintf('Program paused. Press enter to continue.\n');
+% pause;
 
 
 %% =========== Part 4: Train Linear Regression =============
@@ -86,15 +86,15 @@ lambda = 0;
 [theta] = trainLinearReg([ones(m, 1) X], y, lambda);
 
 %  Plot fit over the data
-plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
-xlabel('Change in water level (x)');
-ylabel('Water flowing out of the dam (y)');
-hold on;
-plot(X, [ones(m, 1) X]*theta, '--', 'LineWidth', 2)
-hold off;
+% plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
+% xlabel('Change in water level (x)');
+% ylabel('Water flowing out of the dam (y)');
+% hold on;
+% plot(X, [ones(m, 1) X]*theta, '--', 'LineWidth', 2)
+% hold off;
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+% fprintf('Program paused. Press enter to continue.\n');
+% pause;
 
 
 %% =========== Part 5: Learning Curve for Linear Regression =============
