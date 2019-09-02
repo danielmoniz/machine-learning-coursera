@@ -23,6 +23,9 @@ cost = sum((X * theta - y) .^ 2);
 regularization = sum(lambda * (theta(2:end, :) .^ 2));
 J = 1 / (2 * m) * (cost + regularization);
 
+grad = (1 / m) * X' * (X * theta - y);
+grad = [grad(1); grad(2:end) + (lambda / m) * theta(2:end)];
+
 
 
 
