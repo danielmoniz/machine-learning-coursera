@@ -16,6 +16,15 @@ lambda_vec = [0 0.001 0.003 0.01 0.03 0.1 0.3 1 3 10]';
 error_train = zeros(length(lambda_vec), 1);
 error_val = zeros(length(lambda_vec), 1);
 
+num_runs = length(lambda_vec);
+
+% for i = 1:num_runs
+%     [train_cost, _] = trainLinearReg(X, y, lambda_vec(i));
+%     [val_cost, _] = trainLinearReg(Xval, yval, lambda_vec(i));
+%     error_train(i, 1) = train_cost;
+%     val_train(i, 1) = val_cost;
+% end
+
 % ====================== YOUR CODE HERE ======================
 % Instructions: Fill in this function to return training errors in 
 %               error_train and the validation errors in error_val. The 
