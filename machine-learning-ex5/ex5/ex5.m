@@ -216,5 +216,13 @@ for i = 1:length(lambda_vec)
             lambda_vec(i), error_train(i), error_val(i));
 end
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+% fprintf('Program paused. Press enter to continue.\n');
+% pause;
+
+% From the assignment:
+% "In our cross validation, we obtained a test error of 3.8599 for λ = 3."
+% Yet, we're getting values > 100. Why?
+theta = trainLinearReg(X, y, 3);
+linearRegCostFunction(X, y, theta, 0)
+linearRegCostFunction(Xval, yval, theta, 0)
+linearRegCostFunction(Xtest, ytest, theta, 0)
