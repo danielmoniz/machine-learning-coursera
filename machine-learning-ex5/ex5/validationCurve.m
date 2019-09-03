@@ -18,12 +18,13 @@ error_val = zeros(length(lambda_vec), 1);
 
 num_runs = length(lambda_vec);
 
-% for i = 1:num_runs
-%     [train_cost, _] = trainLinearReg(X, y, lambda_vec(i));
-%     [val_cost, _] = trainLinearReg(Xval, yval, lambda_vec(i));
-%     error_train(i, 1) = train_cost;
-%     val_train(i, 1) = val_cost;
-% end
+for i = 1:num_runs
+    theta = trainLinearReg(X, y, lambda_vec(i));
+    [train_cost, _] = linearRegCostFunction(X, y, theta, 0);
+    [val_cost, _] = linearRegCostFunction(Xval, yval, theta, 0);
+    error_train(i) = train_cost;
+    error_val(i) = val_cost;
+end
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Fill in this function to return training errors in 
