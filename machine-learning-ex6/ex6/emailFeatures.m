@@ -5,10 +5,19 @@ function x = emailFeatures(word_indices)
 %   produces a feature vector from the word indices. 
 
 % Total number of words in the dictionary
-n = 1899;
+vocabList = getVocabList();
+n = length(vocabList);
 
 % You need to return the following variables correctly.
+m = length(word_indices);
 x = zeros(n, 1);
+
+for i = 1:m
+    word_index = word_indices(i);
+    if vocabList{word_index}
+        x(word_index) = 1;
+    end
+end
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Fill in this function to return a feature vector for the
