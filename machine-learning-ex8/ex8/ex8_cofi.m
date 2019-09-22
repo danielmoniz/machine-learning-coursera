@@ -96,8 +96,8 @@ J = cofiCostFunc([X(:) ; Theta(:)], Y, R, num_users, num_movies, ...
 fprintf(['Cost at loaded parameters (lambda = 1.5): %f '...
          '\n(this value should be about 31.34)\n'], J);
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+% fprintf('\nProgram paused. Press enter to continue.\n');
+% pause;
 
 
 %% ======= Part 5: Collaborative Filtering Gradient Regularization ======

@@ -34,8 +34,9 @@ J = (base_cost + theta_regularization + x_regularization) / 2;
 % size_R = size(R)
 % R
 
-X_grad = (all_costs .* R * Theta);
+X_grad = all_costs .* R * Theta + lambda * X;
 
+% @TODO Find an equally elegant (as X_grad above) vectorized solution.
 for j = 1:num_users
     for i = 1:num_movies
         if R(i, j) != 1
