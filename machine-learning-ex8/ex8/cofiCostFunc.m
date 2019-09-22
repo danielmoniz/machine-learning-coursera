@@ -40,7 +40,6 @@ for j = 1:num_users
         Theta_grad(j, :) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, :);
     end
 end
-% Theta_grad = (all_costs .* R * X);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
