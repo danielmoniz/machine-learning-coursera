@@ -17,11 +17,32 @@ J = 0;
 X_grad = zeros(size(X));
 Theta_grad = zeros(size(Theta));
 
-size(X)
-size(Theta)
+size_X = size(X)
+size_Theta = size(Theta)
 
-all_costs = ((X * Theta') - Y) .^ 2;
-J = sum(sum(all_costs(R))) / 2;
+R = (R == 1); % set R to be a 'logical'
+
+all_costs = ((X * Theta') - Y);
+costs_squared = all_costs .^ 2;
+J = sum(sum(costs_squared(R))) / 2;
+
+size_all_costs = size(all_costs)
+size_R = size(R)
+R
+
+X_grad = (all_costs .* R * Theta);
+
+for k = 1:num_features
+    for j = 1:num_users
+        for i = 1:num_movies
+            if R(i, j) != 1
+                continue
+            end
+            Theta_grad(j, k) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, k)
+        end
+    end
+end
+% Theta_grad = (all_costs .* R * X);
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
