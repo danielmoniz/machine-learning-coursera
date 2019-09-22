@@ -32,14 +32,12 @@ J = sum(sum(costs_squared(R))) / 2;
 
 X_grad = (all_costs .* R * Theta);
 
-for k = 1:num_features
-    for j = 1:num_users
-        for i = 1:num_movies
-            if R(i, j) != 1
-                continue
-            end
-            Theta_grad(j, k) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, k);
+for j = 1:num_users
+    for i = 1:num_movies
+        if R(i, j) != 1
+            continue
         end
+        Theta_grad(j, :) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, :);
     end
 end
 % Theta_grad = (all_costs .* R * X);
