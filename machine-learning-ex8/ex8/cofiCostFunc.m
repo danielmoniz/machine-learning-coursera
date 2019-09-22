@@ -17,8 +17,8 @@ J = 0;
 X_grad = zeros(size(X));
 Theta_grad = zeros(size(Theta));
 
-size_X = size(X)
-size_Theta = size(Theta)
+% size_X = size(X)
+% size_Theta = size(Theta)
 
 R = (R == 1); % set R to be a 'logical'
 
@@ -26,9 +26,9 @@ all_costs = ((X * Theta') - Y);
 costs_squared = all_costs .^ 2;
 J = sum(sum(costs_squared(R))) / 2;
 
-size_all_costs = size(all_costs)
-size_R = size(R)
-R
+% size_all_costs = size(all_costs)
+% size_R = size(R)
+% R
 
 X_grad = (all_costs .* R * Theta);
 
@@ -38,7 +38,7 @@ for k = 1:num_features
             if R(i, j) != 1
                 continue
             end
-            Theta_grad(j, k) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, k)
+            Theta_grad(j, k) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, k);
         end
     end
 end
