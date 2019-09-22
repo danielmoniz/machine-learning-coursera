@@ -24,7 +24,11 @@ R = (R == 1); % set R to be a 'logical'
 
 all_costs = ((X * Theta') - Y);
 costs_squared = all_costs .^ 2;
-J = sum(sum(costs_squared(R))) / 2;
+base_cost = sum(sum(costs_squared(R)));
+theta_regularization = lambda * sum(sum(Theta .^ 2));
+x_regularization = lambda * sum(sum(X .^ 2));
+J = (base_cost + theta_regularization + x_regularization) / 2;
+
 
 % size_all_costs = size(all_costs)
 % size_R = size(R)
