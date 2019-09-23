@@ -37,24 +37,8 @@ J = (base_cost + theta_regularization + x_regularization) / 2;
 X_grad = all_costs .* R * Theta + lambda * X;
 
 % @TODO Find an equally elegant (as X_grad above) vectorized solution.
-% for j = 1:num_users
-%     for i = 1:num_movies
-%         if R(i, j) != 1
-%             continue
-%         end
-%         Theta_grad(j, :) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, :);
-%     end
-% end
-
 for k = 1:num_features
-    for j = 1:num_users
-        for i = 1:num_movies
-            if R(i, j) != 1
-                continue
-            end
-            Theta_grad(j, k) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, k);
-        end
-    end
+    Theta_grad(:, k) = ((X * Theta' - Y) .* R)' * X(:, k);
 end
 Theta_grad += lambda * Theta;
 
