@@ -46,6 +46,17 @@ for j = 1:num_users
     end
 end
 
+% for k = 1:num_features
+%     for j = 1:num_users
+%         for i = 1:num_movies
+%             if R(i, j) != 1
+%                 continue
+%             end
+%             Theta_grad(j, k) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, k)
+%         end
+%     end
+% end
+
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
 %               filtering. Concretely, you should first implement the cost
