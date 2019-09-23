@@ -29,13 +29,8 @@ theta_regularization = lambda * sum(sum(Theta .^ 2));
 x_regularization = lambda * sum(sum(X .^ 2));
 J = (base_cost + theta_regularization + x_regularization) / 2;
 
-
-% size_all_costs = size(all_costs)
-% size_R = size(R)
-% R
-
-X_grad = all_costs .* R * Theta + lambda * X;
-Theta_grad = ((X * Theta' - Y) .* R)' * X + lambda * Theta;
+X_grad = (all_costs .* R) * Theta + lambda * X;
+Theta_grad = (all_costs .* R)' * X + lambda * Theta;
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
