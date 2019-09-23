@@ -54,9 +54,9 @@ for k = 1:num_features
             end
             Theta_grad(j, k) += (Theta(j, :) * X(i, :)' - Y(i, j)) * X(i, k);
         end
-        Theta_grad(j, k) += lambda * Theta(j, k);
     end
 end
+Theta_grad += lambda * Theta;
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
