@@ -207,8 +207,8 @@ Theta = reshape(theta(num_movies*num_features+1:end), ...
 
 fprintf('Recommender system learning completed.\n');
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+% fprintf('\nProgram paused. Press enter to continue.\n');
+% pause;
 
 %% ================== Part 8: Recommendation for you ====================
 %  After training the model, you can now make recommendations by computing

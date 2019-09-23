@@ -35,12 +35,7 @@ J = (base_cost + theta_regularization + x_regularization) / 2;
 % R
 
 X_grad = all_costs .* R * Theta + lambda * X;
-
-% @TODO Find an equally elegant (as X_grad above) vectorized solution.
-for k = 1:num_features
-    Theta_grad(:, k) = ((X * Theta' - Y) .* R)' * X(:, k);
-end
-Theta_grad += lambda * Theta;
+Theta_grad = ((X * Theta' - Y) .* R)' * X + lambda * Theta;
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost function and gradient for collaborative
